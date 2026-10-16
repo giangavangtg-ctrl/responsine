@@ -1,0 +1,83 @@
+/* Xóa margin, padding mặc định của trình duyệt */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Kiểu dáng chung cho Navbar (Desktop) */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Đẩy logo và menu ra 2 góc */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    background-color: #333;
+    padding: 15px 20px;
+    color: white;
+    position: relative; /* Để menu thả xuống trên mobile có thể định vị theo navbar */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f39c12; /* Đổi màu khi di chuột qua */
+}
+
+.menu-icon {
+    display: none; /* Ẩn biểu tượng hamburger trên màn hình lớn */
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ✅ Responsive cho Mobile (Màn hình nhỏ hơn 768px) */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Ẩn danh sách menu đi */
+        flex-direction: column; /* Sắp xếp các mục theo chiều dọc */
+        position: absolute;
+        top: 60px; /* Đẩy xuống dưới thanh navbar */
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .nav-links li {
+        padding: 15px 0;
+        border-top: 1px solid #444; /* Dòng kẻ phân cách các mục */
+        margin: 0;
+    }
+
+    .menu-icon {
+        display: block; /* Hiển thị biểu tượng hamburger */
+    }
+
+    /* Class này sẽ được thêm bằng JS khi click vào biểu tượng ☰ */
+    .nav-links.active {
+        display: flex;
+    }
+}
